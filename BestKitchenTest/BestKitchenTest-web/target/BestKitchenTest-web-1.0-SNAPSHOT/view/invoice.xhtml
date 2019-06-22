@@ -1,14 +1,96 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <script src="../resources/js/calendar.js" type="text/javascript"></script>
     <body>
 
         <ui:composition template="../template/template.xhtml">
             
             <ui:define name="content">
-                factura
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Agregar"/></h1>
+                        <p:panelGrid columns="2">
+                            <p:outputLabel for="button" value="Fecha:" />
+                            <p:calendar id="button" value="#{calendarView.date3}" showOn="button" title="Fecha" required="true" requiredMessage="Campo requerido."/>
+                             <p:outputLabel value="Cliente:" for="client" />
+                            <p:selectOneMenu id="client" value="#{invoiceController.inv.client}" required="true" requiredMessage="Campo requerido.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{clientController.findAll()}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Mesa:" for="fkDiningTableId" />
+                            <p:selectOneMenu id="fkDiningTableId" value="#{invoiceController.inv.fkDiningTableId}" required="true" requiredMessage="Campo requerido.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{diningTableController.findAll()}"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Camarero:" for="fkWaiterId" />
+                            <p:selectOneMenu id="fkWaiterId" value="#{invoiceController.inv.fkWaiterId}" required="true" requiredMessage="Campo requerido.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{waiterController.findAll()}"/>
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+                        <h:commandButton value="Agregar" action="#{clientController.add()}"></h:commandButton>
+                    </h:form>
+                </f:view>
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Lista"/></h1>
+                        <p:dataTable value="#{invoiceController.findAll()}" var="item" rows="10"
+                 paginator="true"
+                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                 rowsPerPageTemplate="5,10,15">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Núm. Factura"/>
+                                </f:facet>
+                                <h:outputText value="#{item.pkInvoiceId}"/>
+                            </p:column>
+                            
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Fecha"/>
+                                </f:facet>
+                                <h:outputText value="#{item.date}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Cliente"/>
+                                </f:facet>
+                                <h:outputText value="#{item.client}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Mesa"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fkDiningTableId}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Camarero"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fkWaiterId}"/>
+                            </p:column>
+                            <f:facet name="paginatorTopLeft">
+            <p:commandButton type="button" icon="pi pi-refresh" />
+        </f:facet>
+ 
+        <f:facet name="paginatorBottomRight">
+            <p:commandButton type="button" icon="pi pi-cloud-upload" />
+        </f:facet>
+                        </p:dataTable>
+                    </h:form>
+                </f:view>
+
             </ui:define>
 
         </ui:composition>
