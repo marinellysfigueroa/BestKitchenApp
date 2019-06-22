@@ -12,7 +12,11 @@ grant all privileges on database best_kitchen to conexia_app;
 
 Luego restaure la base de datos ejecutando en el terminal, ubicado en la ruta donde haya descargado el archivo:
 psql -h 127.0.0.1 -U conexia_app best_kitchen < best_kitchen.sql
+# Arquitectura de la aplicación
+En este repositorio también encotrará una carpeta denominada BestKitchenTest la cual contiene en su interior los proyectos construidos y gestionados a través de la herramienta "maven".
 
+En cuanto a la arquitectura se elaboró una aplicación empresarial compuesta por una aplicación web y una aplicación de negocios. 
+La aplicación Web fue elaborada haciendo uso de Java Server Faces (JSF) y PrimeFaces, mientras que la para la aplicación de negocios se hizo uso de JPA, EJB y Hibernate.
 
-
+Dichas aplicaciones fueron desarrolladas y desplegadas haciendo uso del servidor Glassfish y el IDE Netbeans.
 
