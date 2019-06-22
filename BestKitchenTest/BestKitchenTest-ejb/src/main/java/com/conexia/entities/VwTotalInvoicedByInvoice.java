@@ -8,6 +8,7 @@ package com.conexia.entities;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -31,6 +32,7 @@ public class VwTotalInvoicedByInvoice implements Serializable {
     @Column(name = "total")
     private Double total;
     @Column(name = "fk_invoice_id")
+    @Id
     private Integer fkInvoiceId;
 
     public VwTotalInvoicedByInvoice() {

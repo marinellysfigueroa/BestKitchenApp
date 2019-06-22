@@ -1,8 +1,8 @@
-/home/mfigueroa/Repositorios/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/ReportClientController.java
-/home/mfigueroa/Repositorios/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/InvoiceController.java
-/home/mfigueroa/Repositorios/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/WaiterController.java
-/home/mfigueroa/Repositorios/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/DiningTableController.java
-/home/mfigueroa/Repositorios/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/ClientController.java
-/home/mfigueroa/Repositorios/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/ReportWaiterController.java
-/home/mfigueroa/Repositorios/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/InvoiceDetailController.java
-/home/mfigueroa/Repositorios/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/ChefController.java
+/home/mfigueroa/Documentos/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/WaiterController.java
+/home/mfigueroa/Documentos/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/DiningTableController.java
+/home/mfigueroa/Documentos/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/ChefController.java
+/home/mfigueroa/Documentos/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/ClientController.java
+/home/mfigueroa/Documentos/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/ReportWaiterController.java
+/home/mfigueroa/Documentos/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/ReportClientController.java
+/home/mfigueroa/Documentos/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/InvoiceDetailController.java
+/home/mfigueroa/Documentos/conexia/BestKitchenTest/BestKitchenTest-web/src/main/java/com/conexia/controller/InvoiceController.java

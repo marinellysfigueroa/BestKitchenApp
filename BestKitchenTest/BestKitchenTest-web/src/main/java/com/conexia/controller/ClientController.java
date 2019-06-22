@@ -5,9 +5,13 @@
  */
 package com.conexia.controller;
 
+import com.conexia.entities.Client;
+import com.conexia.model.ClientFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -17,10 +21,30 @@ import java.io.Serializable;
 @SessionScoped
 public class ClientController implements Serializable {
 
-    /**
-     * Creates a new instance of ClientController
-     */
+    @EJB
+    private ClientFacade clientFacade;
+    private Client client =new Client();
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+    
+
+    
     public ClientController() {
+    }
+    public List<Client> findAll()
+    {
+        return this.clientFacade.findAll();
+    }
+    public String add()
+    {
+        this.clientFacade.create(this.client);
+        return "client";
     }
     
 }

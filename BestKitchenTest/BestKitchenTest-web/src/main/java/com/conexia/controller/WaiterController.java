@@ -5,9 +5,13 @@
  */
 package com.conexia.controller;
 
+import com.conexia.entities.Waiter;
+import com.conexia.model.WaiterFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -17,10 +21,31 @@ import java.io.Serializable;
 @SessionScoped
 public class WaiterController implements Serializable {
 
-    /**
-     * Creates a new instance of WaiterController
-     */
+    @EJB
+    private WaiterFacade waiterFacade;
+    private Waiter waiter = new Waiter();
+
+    public Waiter getWaiter() {
+        return waiter;
+    }
+
+    public void setWaiter(Waiter waiter) {
+        this.waiter = waiter;
+    }
+
+    
     public WaiterController() {
+    }
+    
+    public List<Waiter> findAll()
+    {
+        return this.waiterFacade.findAll();
+        
+    }
+    public String add()
+    {
+        this.waiterFacade.create(this.waiter);
+        return "waiter";
     }
     
 }

@@ -5,9 +5,13 @@
  */
 package com.conexia.controller;
 
+import com.conexia.entities.DiningTable;
+import com.conexia.model.DiningTableFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -17,10 +21,31 @@ import java.io.Serializable;
 @SessionScoped
 public class DiningTableController implements Serializable {
 
-    /**
-     * Creates a new instance of DiningTableController
-     */
+    @EJB
+    private DiningTableFacade diningTableFacade;
+    private DiningTable dt=new DiningTable();
+
+    public DiningTable getDt() {
+        return dt;
+    }
+
+    public void setDt(DiningTable dt) {
+        this.dt = dt;
+    }
+    
+    
+    
     public DiningTableController() {
+    }
+    
+    public List<DiningTable> findAll()
+    {
+        return this.diningTableFacade.findAll();
+    }
+    public String add()
+    {
+        this.diningTableFacade.create(this.dt);
+        return "diningTable";
     }
     
 }

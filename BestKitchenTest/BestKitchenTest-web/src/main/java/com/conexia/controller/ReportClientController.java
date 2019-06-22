@@ -5,9 +5,13 @@
  */
 package com.conexia.controller;
 
+import com.conexia.entities.VwTotalInvocedByClientVip;
+import com.conexia.model.VwTotalInvocedByClientVipFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -17,10 +21,30 @@ import java.io.Serializable;
 @SessionScoped
 public class ReportClientController implements Serializable {
 
-    /**
-     * Creates a new instance of ReportClientController
-     */
+    @EJB
+    private VwTotalInvocedByClientVipFacade rpClientFacade;
+    private VwTotalInvocedByClientVip client= new VwTotalInvocedByClientVip();
+
+    public VwTotalInvocedByClientVip getClient() {
+        return client;
+    }
+
+    public void setClient(VwTotalInvocedByClientVip client) {
+        this.client = client;
+    }
+    
+    
     public ReportClientController() {
+    }
+    public List<VwTotalInvocedByClientVip> findAll()
+    {
+        return this.rpClientFacade.findAll();
+    }
+    
+    public String add()
+    {
+     this.rpClientFacade.create(this.client);
+     return "reportClient";   
     }
     
 }

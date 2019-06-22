@@ -6,11 +6,12 @@
 package com.conexia.controller;
 
 
-import com.conexia.entities.Chef;
+import com.conexia.entities.*;
+import com.conexia.model.ChefFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
+import java.util.*;
 import javax.ejb.EJB;
 
 /**
@@ -22,7 +23,7 @@ import javax.ejb.EJB;
 public class ChefController implements Serializable {
 
     @EJB
-    private com.conexia.model.ChefFacade chefFacade;
+    private ChefFacade chefFacade;
     private Chef chef= new Chef();
 
     
@@ -39,12 +40,14 @@ public class ChefController implements Serializable {
     
     public  List<Chef> findAll()
     {
+        System.out.println("this.chefFacade "+this.chefFacade);
         return this.chefFacade.findAll();
     }
-    public String add(Chef chef)
+    public String add()
     {
-        this.chefFacade.create(chef);
-        return "index";
+        this.chefFacade.create(this.chef);
+        this.chef=new Chef();
+        return "chef";
     }
     
 }

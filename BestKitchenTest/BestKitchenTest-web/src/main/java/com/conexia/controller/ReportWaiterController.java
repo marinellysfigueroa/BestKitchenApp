@@ -5,9 +5,13 @@
  */
 package com.conexia.controller;
 
+import com.conexia.entities.VwTotalInvoicedMonthlyByWaiter;
+import com.conexia.model.VwTotalInvoicedMonthlyByWaiterFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -17,10 +21,32 @@ import java.io.Serializable;
 @SessionScoped
 public class ReportWaiterController implements Serializable {
 
-    /**
-     * Creates a new instance of ReportWaiterController
-     */
+    @EJB
+    private VwTotalInvoicedMonthlyByWaiterFacade rpWaiterFacade;
+    private VwTotalInvoicedMonthlyByWaiter waiter = new VwTotalInvoicedMonthlyByWaiter();
+
+    public VwTotalInvoicedMonthlyByWaiter getWaiter() {
+        return waiter;
+    }
+
+    public void setWaiter(VwTotalInvoicedMonthlyByWaiter waiter) {
+        this.waiter = waiter;
+    }
+    
+    
+
+   
     public ReportWaiterController() {
+    }
+    
+    public List<VwTotalInvoicedMonthlyByWaiter> findAll()
+    {
+        return this.rpWaiterFacade.findAll();
+    }
+    public String add()
+    {
+        this.rpWaiterFacade.create(this.waiter);
+        return "reportWaiter";
     }
     
 }

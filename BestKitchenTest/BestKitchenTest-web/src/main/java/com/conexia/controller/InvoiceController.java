@@ -5,9 +5,13 @@
  */
 package com.conexia.controller;
 
+import com.conexia.entities.Invoice;
+import com.conexia.model.InvoiceFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -17,10 +21,33 @@ import java.io.Serializable;
 @SessionScoped
 public class InvoiceController implements Serializable {
 
-    /**
-     * Creates a new instance of InvoiceController
-     */
+    @EJB
+    private InvoiceFacade invoiceFacade;
+    private Invoice inv=new Invoice();
+
+    public Invoice getInv() {
+        return inv;
+    }
+
+    public void setInv(Invoice inv) {
+        this.inv = inv;
+    }
+    
+
+    
+    
     public InvoiceController() {
+    }
+    
+    public List<Invoice> findAll()
+    {
+        return this.invoiceFacade.findAll();
+    }
+    
+    public String add()
+    {
+        this.invoiceFacade.create(this.inv);
+        return "invoice";
     }
     
 }

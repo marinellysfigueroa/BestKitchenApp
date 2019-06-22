@@ -1,17 +1,67 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <body>
+        <ui:composition template="../template/template.xhtml">
 
-         <ui:composition template="../template/template.xhtml">
-            
             <ui:define name="content">
-                chef
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Create/Edit"/></h1>
+                        <p:panelGrid columns="2">
+                                <p:outputLabel value="Name:" for="name" />
+                            <p:inputText id="name" value="#{chefController.chef.name}" title="Name" required="true" requiredMessage="The Name field is required."/>
+                            <p:outputLabel value="FirstLastName:" for="firstLastName" />
+                            <p:inputText id="firstLastName" value="#{chefController.chef.firstLastName}" title="FirstLastName" required="true" requiredMessage="The FirstLastName field is required."/>
+                            <p:outputLabel value="SecondLastName:" for="secondLastName" />
+                            <p:inputText id="secondLastName" value="#{chefController.chef.secondLastName}" title="SecondLastName" />
+                        </p:panelGrid>
+                        <h:commandButton action="#{chefController.add()}" value="Agregar"/>
+                    </h:form>
+                </f:view>
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="List"/></h1>
+                        <p:dataTable value="#{chefController.findAll()}" var="item">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="PkChefId"/>
+                                </f:facet>
+                                <h:outputText value="#{item.pkChefId}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Name"/>
+                                </f:facet>
+                                <h:outputText value="#{item.name}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="FirstLastName"/>
+                                </f:facet>
+                                <h:outputText value="#{item.firstLastName}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="SecondLastName"/>
+                                </f:facet>
+                                <h:outputText value="#{item.secondLastName}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </f:view>
+
+
+               
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>

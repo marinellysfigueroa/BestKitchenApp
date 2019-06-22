@@ -8,21 +8,20 @@
 }
 
 #bottom {
-    margin-bottom:20%;
+    
     width:100%;
     height:20px;
     color: white;
-    background-color:orange;
-    position: absolute;
-    
+    position: relative;
+    text-align: center;
+    background-color: orange;
 }
 
 #left {
     float: left;
-    background-color: #ece3a5;
     padding: 5px;
     width: 150px;
-    background-color: orange;
+    
 }
 
 #right {
@@ -39,7 +38,7 @@
 }
 
 .left_content {
-    background-color: #dddddd;
+    
     padding: 5px;
     margin-left: 170px;
 }
