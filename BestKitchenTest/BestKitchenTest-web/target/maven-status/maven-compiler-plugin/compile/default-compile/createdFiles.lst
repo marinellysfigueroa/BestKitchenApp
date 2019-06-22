@@ -1,0 +1,8 @@
+com/conexia/controller/DiningTableController.class
+com/conexia/controller/ReportClientController.class
+com/conexia/controller/WaiterController.class
+com/conexia/controller/InvoiceController.class
+com/conexia/controller/InvoiceDetailController.class
+com/conexia/controller/ClientController.class
+com/conexia/controller/ChefController.class
+com/conexia/controller/ReportWaiterController.class

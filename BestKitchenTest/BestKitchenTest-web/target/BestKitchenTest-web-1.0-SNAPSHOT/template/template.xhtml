@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css"/>
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css"/>    
+        <title>Restaurante la mejor cocina</title>
+    </h:head>
+    <h:body>
+        <ui:insert name="top"><div id="top">
+                <img src="./resources/img/logo.png" alt=""/></div>
+        </ui:insert>
+        <ui:insert name="left">
+            <div id="left">
+                <h:form>
+                    <p:panelMenu >
+                        <p:submenu label="Administración">
+                            <p:menuitem value="Camareros" action="waiter" />                                
+                            <p:menuitem value="Clientes" action="client" />
+                            <p:menuitem value="Cocineros" action="chef" />                               
+                            <p:menuitem value="Mesa" action="diningTable" />                               
+                        </p:submenu>
+                        <p:submenu label="Factura">
+                            <p:menuitem value="Registrar" action="invoice" />                                                          
+                        </p:submenu>
+                        <p:submenu label="Reportes">
+                            <p:menuitem value="Camareros" action="reportWaiter" />
+                            <p:menuitem value="Clientes" action="reportClient" />
+                        </p:submenu>
+
+
+                    </p:panelMenu>
+                </h:form></div>
+        </ui:insert>
+        <div id="content" class="left_content">
+            <ui:insert name="content">
+
+
+            </ui:insert>
+        </div>
+        <div id="bottom">
+            <ui:insert name="bottom">
+                &copy; Marinellys Figueroa
+            </ui:insert>
+        </div>
+    </h:body>
+</html>
