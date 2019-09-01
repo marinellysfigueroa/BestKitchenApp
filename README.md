@@ -1,5 +1,4 @@
-# Prueba técnica Conexia
-Repositorio creado para compartir las fuentes de la prueba técnica desarrollada para aplicar al cargo de desarrollador en la empresa Conexia.
+
 # Creación y configuración de la base de datos
 En el presente repositorio encontrará un documento contentivo del diagrama ER diseñado para materializar la presente prueba técnica, dicho modelo debe ser ejecutado en una base de datos postgresql, para ello se adjunta el script best_kitchen.sql. Contentivo de la estructura de base de datos y una pequeña muestra de datos. Es importante aclarar que se debe crear la base de datos y un usuario con permisos de superusurio llamado conexia_app y clave c0n3x14.
 
